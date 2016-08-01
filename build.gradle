@@ -1,5 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: 'jetty'
+apply plugin: 'spring-boot'
 
 repositories {
     jcenter()
@@ -7,6 +9,7 @@ repositories {
 
 dependencies {
     compile 'org.slf4j:slf4j-api:1.7.21'
+    compile 'org.springframework.boot:spring-boot-starter-web:1.4.0.RELEASE'
 
     testCompile 'junit:junit:4.12'
 }
