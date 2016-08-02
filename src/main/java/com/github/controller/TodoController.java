@@ -3,12 +3,10 @@ package com.github.controller;
 import com.github.model.TodoItem;
 import com.github.repository.TodoRepository;
 import com.github.repository.TodoRepositoryImpl;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
-//@EnableAutoConfiguration
 @RestController
 @RequestMapping("/todo")
 public class TodoController {
@@ -32,7 +30,7 @@ public class TodoController {
     @RequestMapping(method = RequestMethod.POST, value = "/create")
     public String create(@RequestBody TodoItem item) {
         todoItems.add(item);
-        return "Create succussful!";
+        return "Create successful!";
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/update/{key}")
@@ -44,12 +42,12 @@ public class TodoController {
 
         TodoItem todo = todoItems.find(key);
         todoItems.update(item);
-        return "update succussful";
+        return "update successful";
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/delete/{key}")
     public String delete(@PathVariable("key") String key) {
         todoItems.remove(key);
-        return "delete succussful";
+        return "delete successful";
     }
 }
