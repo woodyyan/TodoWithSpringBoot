@@ -6,7 +6,6 @@ import com.github.repository.TodoRepositoryImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Collection;
 
 @RestController
@@ -21,13 +20,13 @@ public class TodoController {
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<Collection<TodoItem>> getAllTodos() {
         Collection<TodoItem> items = todoItems.getAll();
-        return  new ResponseEntity<>(items, HttpStatus.OK);
+        return new ResponseEntity<>(items, HttpStatus.OK);
     }
 
     @RequestMapping("/{key}")
     public ResponseEntity<TodoItem> getByKey(@PathVariable("key") String key) {
         TodoItem item = todoItems.find(key);
-        return  new ResponseEntity<>(item, HttpStatus.OK);
+        return new ResponseEntity<>(item, HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -38,8 +37,7 @@ public class TodoController {
 
     @RequestMapping(method = RequestMethod.PUT, value = "/{key}")
     public ResponseEntity update(@PathVariable("key") String key, @RequestBody TodoItem item) {
-        if (item == null || !item.getKey().equals(key))
-        {
+        if (item == null || !item.getKey().equals(key)) {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
 
