@@ -4,7 +4,6 @@ import com.github.model.TodoItem;
 import com.github.repository.TodoRepository;
 import com.github.repository.TodoRepositoryImpl;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Collection;
 
 @RestController
